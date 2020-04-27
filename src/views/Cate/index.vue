@@ -1,11 +1,28 @@
 <template>
   <div class="page-cate">
-    <h1>分类</h1>
+      <normal-header title="分类"></normal-header>
   </div>
 </template>
 
 <script>
+import NormalHeader from '@/components/NormalHeader'
 export default {
-  name: 'Cate'
+  name: 'Cate',
+  components: {
+    NormalHeader
+  }
 }
 </script>
+<style lang="scss" scoped>
+.page-cate {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .cate-main {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+}
+</style>

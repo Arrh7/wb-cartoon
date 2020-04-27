@@ -1,11 +1,29 @@
 <template>
   <div class="page-daypub">
-    <h1>放送表</h1>
+        <normal-header title="放送表"></normal-header>
   </div>
 </template>
 
 <script>
+import NormalHeader from '@/components/NormalHeader'
 export default {
-  name: 'Daypub'
+  name: 'Daypub',
+  components: {
+    NormalHeader
+  }
 }
 </script>
+
+<style lang="scss" scoped>
+.page-daypub {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .daypub-main {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+}
+</style>

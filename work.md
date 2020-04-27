@@ -10,4 +10,10 @@
 
 4. 首页静态完成，
 
-   
+
+
+# day02
+
+1. 轮播图的实现
+2. 接口分析跨域代理
+http://manhua.weibo.cn/wbcomic/home/page_recommend_list?mca=h5_recommend_female&_type=h5

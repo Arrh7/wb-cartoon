@@ -11,30 +11,33 @@
         <img src="../../assets/icon/mine.png" alt="" />
       </div>
     </div>
-    <!-- swiper -->
+    <!-- main -->
     <div class="index-main">
+      <!-- swiper -->
       <div class="banner">
-        <div class="swiper"></div>
+        <Swiper @change="onChange" :autoplay="3000" class="my-swiper">
+          <SwiperItem>
+            <img
+              src="https://img.manhua.weibo.com/client/2020/02/11/ABTaCgOk.png"
+              alt=""
+            />
+          </SwiperItem>
+          <SwiperItem>
+            <img
+              src="https://img.manhua.weibo.com/client/2020/04/14/gU3Vg3gU.jpg"
+              alt=""
+            />
+          </SwiperItem>
+          <SwiperItem>
+            <img
+              src="https://img.manhua.weibo.com/client/2020/04/14/gU3Vg3gU.jpg"
+              alt=""
+            />
+          </SwiperItem>
+        </Swiper>
       </div>
       <!-- menu -->
-      <ul class="index-menu">
-        <li>
-          <img src="../../assets/icon/daypub.png" alt="" />
-          <p>放送表</p>
-        </li>
-        <li>
-          <img src="../../assets/icon/catelog.png" alt="" />
-          <p>分类</p>
-        </li>
-        <li>
-          <img src="../../assets/icon/rank.png" alt="" />
-          <p>榜单</p>
-        </li>
-        <li>
-          <img src="../../assets/icon/ending.png" alt="" />
-          <p>完结</p>
-        </li>
-      </ul>
+      <index-nav></index-nav>
       <!-- recommend -->
       <section class="index-recommend">
         <div class="recommend-divide"></div>
@@ -125,7 +128,7 @@
           </div>
         </div>
         <!-- 排行榜 -->
-         <div class="recommend-divide"></div>
+        <div class="recommend-divide"></div>
         <div class="recommend-title">
           <div class="title-group">
             <img
@@ -151,9 +154,7 @@
                 ☵
                 <span class="hot-hot">恋爱、总裁</span>
               </p>
-              <p
-                class="item-text font-24"
-              >风露社</p>
+              <p class="item-text font-24">风露社</p>
             </div>
           </div>
           <div class="item">
@@ -167,12 +168,10 @@
             <div class="text-group">
               <p class="item-name font-30">才不是金手指</p>
               <p class="item-hot font-24">
-                  ☵
+                ☵
                 <span class="hot-hot">恋爱、总裁</span>
               </p>
-              <p
-                class="item-text font-24"
-              >风露社</p>
+              <p class="item-text font-24">风露社</p>
             </div>
           </div>
           <div class="item">
@@ -186,12 +185,10 @@
             <div class="text-group">
               <p class="item-name font-30">我的外挂戒灵</p>
               <p class="item-hot font-24">
-                  ☵
+                ☵
                 <span class="hot-hot">恋爱、总裁</span>
               </p>
-              <p
-                class="item-text font-24"
-              >风露社</p>
+              <p class="item-text font-24">风露社</p>
             </div>
           </div>
         </div>
@@ -225,11 +222,10 @@
               <p class="item-name font-28">恶魔，别吻我</p>
               <p class="item-text font-24">美男小三居然是恶魔？</p>
             </div>
-
           </div>
         </div>
         <!-- 三个 -->
-           <div class="recommend-divide"></div>
+        <div class="recommend-divide"></div>
         <div class="recommend-title">
           <div class="title-group">
             <img
@@ -274,8 +270,20 @@
 </template>
 
 <script>
+import { Swiper, SwiperItem } from '@/components/Swiper'
+import IndexNav from './components/IndexNav'
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    Swiper,
+    SwiperItem,
+    IndexNav
+  },
+  methods: {
+    onChange (index) {
+      // console.log(index)
+    }
+  }
 }
 </script>
 
@@ -312,50 +320,18 @@ export default {
   .index-main {
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
     //轮播图
     .banner {
-      width: 375px;
-      height: 222px;
+      // width: 360px;
+      // height: 222px;
       padding-top: 8px;
       background: #fff;
-      .swiper {
-        width: 342px;
-        height: 214px;
-        margin: 0 auto;
-        border-radius: 10px;
-        background-color: pink;
-      }
+      .my-swiper img {
+      width: 100%;
     }
-    // index-menu
-    .index-menu {
-      width: 360px;
-      height: 120px;
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #fff;
-      li {
-        width: 60px;
-        height: 88px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        // background-color: powderblue;
-        img {
-          width: 60px;
-          height: 60px;
-        }
-        p {
-          width: 60px;
-          height: 24px;
-          font-size: 14px;
-          color: #333;
-          text-align: center;
-          line-height: 24px;
-        }
-      }
     }
+
     // index-recommend
     .index-recommend {
       .recommend-divide {
@@ -478,64 +454,64 @@ export default {
       }
       // 排行榜
       .recommend-type-3 {
-      padding: 0 10px;
-      box-sizing: border-box;
-      .item {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        margin-bottom: 16px;
-        position: relative;
-        .item-pic {
-          width: 154px;
-          height: 90px;
-          border-radius: 10px;
-        }
-        .text-group {
-          width: 158px;
-          margin-left: 42px;
-          .item-name {
-            margin-bottom: 4px;
-            color: #3a3a3a;
-            font-weight: 500;
+        padding: 0 10px;
+        box-sizing: border-box;
+        .item {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          margin-bottom: 16px;
+          position: relative;
+          .item-pic {
+            width: 154px;
+            height: 90px;
+            border-radius: 10px;
           }
-          .item-hot {
-            color: #b0b0b0;
-            margin-bottom: 15px;
-            .hot-hot {
-              color: red;
+          .text-group {
+            width: 158px;
+            margin-left: 42px;
+            .item-name {
+              margin-bottom: 4px;
+              color: #3a3a3a;
+              font-weight: 500;
+            }
+            .item-hot {
+              color: #b0b0b0;
+              margin-bottom: 15px;
+              .hot-hot {
+                color: red;
+              }
+            }
+            .item-text {
+              color: #8d8d8d;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              white-space: nowrap;
             }
           }
-          .item-text {
-            color: #8d8d8d;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
+          .ranking-group {
+            .item-ranking {
+              width: 25px;
+              height: 25px;
+              background-repeat: no-repeat;
+              background-position: top;
+              background-size: 100%;
+              position: absolute;
+              top: 4px;
+              left: 168px;
+            }
+            .item-ranking-other {
+              width: 25px;
+              height: 25px;
+              background-repeat: no-repeat;
+              background-position: top;
+              background-size: 100%;
+              position: absolute;
+              top: 6px;
+              left: 168px;
+            }
           }
         }
-        .ranking-group {
-          .item-ranking {
-            width: 25px;
-            height: 25px;
-            background-repeat: no-repeat;
-            background-position: top;
-            background-size: 100%;
-            position: absolute;
-            top: 4px;
-            left: 168px;
-          }
-          .item-ranking-other {
-            width: 25px;
-            height: 25px;
-            background-repeat: no-repeat;
-            background-position: top;
-            background-size: 100%;
-            position: absolute;
-            top: 6px;
-            left: 168px;
-          }
-        }
-      }
       }
     }
   }

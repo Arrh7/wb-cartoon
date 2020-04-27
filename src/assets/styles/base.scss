@@ -107,6 +107,7 @@ section {
 }
 body {
   line-height: 1.4;
+
 }
 ol,
 ul {
@@ -131,6 +132,7 @@ table {
 // =================
 body {
   font-size: 16px;
+
 }
 html,
 body,
@@ -139,7 +141,7 @@ body,
 	// 只需要将 px => PX
   max-width: 540PX;
 	height: 100%;
-	margin: auto;
+	margin: 0 auto;
 }
 a:active,
 a:hover,
